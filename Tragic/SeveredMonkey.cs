@@ -5,12 +5,18 @@ using System.Threading.Tasks;
 
 namespace Tragic
 {
-    public class SeveredMonkey : Card
+    public class SeveredMonkey : ICard
     {
         public string Name => "Severed Monkey";
         public int C => 1;
         public int AP => 2;
         public int DP => 1;
         public int Quantity => 4;
+
+        // Override ToString() to display the card's Name/C/AP/DP
+        public override string ToString()
+        {
+            return $"{Name}/{C}/{AP}/{DP}";
+        }
     }
 }

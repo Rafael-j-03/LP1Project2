@@ -16,9 +16,19 @@ namespace Tragic
             this.player2 = player2;
         }
 
-        public void Run()
+        public void Run(IView view)
         {
-            // TODO: Implement
+            view.ShowPlayersCards(player1, player2);
+        }
+
+        public Player GetPlayer1()
+        {
+            return player1;
+        }
+
+        public Player GetPlayer2()
+        {
+            return player2;
         }
     }
 }

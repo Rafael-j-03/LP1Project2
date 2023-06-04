@@ -7,6 +7,6 @@ namespace Tragic
 {
     public interface IView
     {
-        
+        public void ShowPlayersCards(Player player1, Player player2);
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Tragic
 {
-    public interface Card
+    public interface ICard
     {
         public string Name { get; }
         public int C { get; }

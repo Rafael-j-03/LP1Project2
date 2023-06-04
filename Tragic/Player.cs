@@ -9,9 +9,9 @@ namespace Tragic
     {
         public int HP { get;}
         public int MP { get;}
-        public List<Card> Deck { get; }
+        public Deck Deck { get;}
 
-        public Player(int hp, int mp, List<Card> deck)
+        public Player(int hp, int mp, Deck deck)
         {
             HP = hp;
             MP = mp;

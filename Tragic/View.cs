@@ -13,5 +13,18 @@ namespace Tragic
         {
             this.controller = controller;
         }
+
+        public void ShowPlayersCards(Player player1, Player player2)
+        {
+            foreach (ICard card in player1.Deck.GetCards())
+            {
+                Console.WriteLine("Player 1: " + card);
+            }
+
+            foreach (ICard card in player2.Deck.GetCards())
+            {
+                Console.WriteLine("Player 2: " + card);
+            }
+        }
     }
 }
