@@ -2,11 +2,22 @@
 
 namespace Tragic
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            Console.WriteLine("Hello, World!");
+            // Create two players
+            new Player(20, 0, new List<Card> { new Card(1, 1, 1) });
+            new Player(20, 0, new List<Card> { new Card(1, 1, 1) });
+
+            // Create a controller with two players
+            Controller controller = new Controller(player1, player2);
+
+            // Create a view with a controller
+            IView view = new View(controller);
+
+            // Start the game
+            controller.Run();
         }
     }
 }

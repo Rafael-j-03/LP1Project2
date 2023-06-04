@@ -15,5 +15,10 @@ namespace Tragic
             this.player1 = player1;
             this.player2 = player2;
         }
+
+        public void Run()
+        {
+            // TODO: Implement
+        }
     }
 }
