@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace Tragic
 {
-    public class SeveredMonkey : ICard
+    public class ScorchingHeatwave : ICard
     {
-        public string Name => "Severed Monkey";
-        public int C => 1;
-        public int AP => 2;
-        public int DP => 1;
-        public int Quantity => 4;
+        public string Name => "Scorching Heatwave";
+        public int C => 4;
+        public int AP => 5;
+        public int DP => 3;
+        public int Quantity => 1;
 
         // Override ToString() to display the card's Name/C/AP/DP
         public override string ToString()
