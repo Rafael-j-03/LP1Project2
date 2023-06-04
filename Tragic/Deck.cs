@@ -68,6 +68,13 @@ namespace Tragic
             }
         }
 
+        // Remove a card from the deck
+        public void RemoveCard(ICard card)
+        {
+            cards.Remove(card);
+        }
+
+        // Get all current cards in the deck
         public List<ICard> GetCards()
         {
             return cards;
