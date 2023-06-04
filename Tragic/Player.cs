@@ -7,9 +7,9 @@ namespace Tragic
 {
     public class Player
     {
-        public int HP { get;}
-        public int MP { get;}
-        public Deck Deck { get;}
+        public int HP { get; set; }
+        public int MP { get; set; }
+        public Deck Deck { get; }
         public Hand Hand { get; }
 
         public Player(int hp, int mp, Deck deck)
