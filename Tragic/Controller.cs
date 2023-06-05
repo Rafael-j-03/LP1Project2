@@ -44,18 +44,18 @@ namespace Tragic
                     player2.MP = 5;
                 }
 
-                SpellPhase(player1, view, "1");
-                SpellPhase(player2, view, "2");
+                SpellPhase(player1, view);
+                SpellPhase(player2, view);
                 CombatPhase(player1, player2, view);
             }
         }
 
-        public void SpellPhase(Player player, IView view, string playerNumber)
+        public void SpellPhase(Player player, IView view)
         {
             while (player.MP > 0)
             {
                 // Player chooses a card to play
-                ICard selectedCard = ChooseCardToPlay(player, view, playerNumber);
+                ICard selectedCard = ChooseCardToPlay(player, view);
 
                 // If the player chooses to skip their turn, break out of the loop
                 if (selectedCard == null)
@@ -85,9 +85,9 @@ namespace Tragic
                 view.NoMP(player);
         }
 
-        private ICard ChooseCardToPlay(Player player, IView view, string playerNumber)
+        private ICard ChooseCardToPlay(Player player, IView view)
         {
-            view.ShowPlayerCards(player, playerNumber);
+            view.ShowPlayerCards(player);
 
             string input = Console.ReadLine();
 
@@ -104,10 +104,9 @@ namespace Tragic
             else
             {
                 view.InvalidChoice();
-                return ChooseCardToPlay(player, view, playerNumber);
+                return ChooseCardToPlay(player, view);
             }
         }
-
 
         public void CombatPhase(Player player1, Player player2, IView view)
         {
@@ -121,12 +120,6 @@ namespace Tragic
                 // Create a new card of the same type with the modified DP value
                 ICard modifiedCard = (ICard)Activator.CreateInstance(player2Cards[0].GetType());
                 modifiedCard.DP = modifiedDP;
-
-                Console.WriteLine($"Player 1 played {player1Cards[0].Name} with {player1Cards[0].AP} AP");
-                Console.WriteLine($"Player 2 modified {modifiedCard.Name} with new DP value: {modifiedCard.DP}");
-                
-                Console.ReadLine();
-                break;
             }
         }
     }

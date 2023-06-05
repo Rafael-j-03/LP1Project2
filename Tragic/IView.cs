@@ -7,7 +7,7 @@ namespace Tragic
 {
     public interface IView
     {
-        public void ShowPlayerCards(Player player, string playerNumber);
+        public void ShowPlayerCards(Player player);
         public void InvalidChoice();
         public void CardCost(ICard selectedCard, Player player);
         public void NoMPForCard(ICard selectedCard);

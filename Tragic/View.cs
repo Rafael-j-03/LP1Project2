@@ -14,9 +14,9 @@ namespace Tragic
             this.controller = controller;
         }
 
-        public void ShowPlayerCards(Player player, string playerNumber)
+        public void ShowPlayerCards(Player player)
         {
-            Console.WriteLine($"Player {playerNumber}");
+            Console.WriteLine($"Player {player.PlayerNumber}");
             Console.WriteLine($"HP: {player.HP}");
             Console.WriteLine($"MP: {player.MP}");
 
