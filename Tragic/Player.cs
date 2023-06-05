@@ -11,6 +11,7 @@ namespace Tragic
         public int MP { get; set; }
         public Deck Deck { get; }
         public Hand Hand { get; }
+        public SelectedCards SelectedCards { get; }
 
         public Player(int hp, int mp, Deck deck)
         {
@@ -18,6 +19,7 @@ namespace Tragic
             MP = mp;
             Deck = deck;
             Hand = new Hand(deck);
+            SelectedCards = new SelectedCards(Hand);
         }
     }
 }

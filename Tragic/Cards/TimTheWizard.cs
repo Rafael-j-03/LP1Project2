@@ -10,7 +10,7 @@ namespace Tragic
         public string Name => "Tim, The Wizard";
         public int C => 5;
         public int AP => 6;
-        public int DP => 4;
+        public int DP { get; set; } = 4;
         public int Quantity => 1;
 
         // Override ToString() to display the card's Name/C/AP/DP

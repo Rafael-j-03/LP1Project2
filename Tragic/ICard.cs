@@ -10,7 +10,7 @@ namespace Tragic
         public string Name { get; }
         public int C { get; }
         public int AP { get; }
-        public int DP { get; }
+        public int DP { get; set; }
         public int Quantity { get; }
     }
 }

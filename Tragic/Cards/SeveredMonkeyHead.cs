@@ -10,7 +10,7 @@ namespace Tragic
         public string Name => "Severed Monkey Head";
         public int C => 1;
         public int AP => 2;
-        public int DP => 1;
+        public int DP { get; set; } = 1;
         public int Quantity => 4;
 
         // Override ToString() to display the card's Name/C/AP/DP

@@ -67,6 +67,7 @@ namespace Tragic
                     // Play the selected card
                     player.MP -= selectedCard.C;
                     player.Hand.RemoveCard(selectedCard);
+                    player.SelectedCards.AddCard(selectedCard);
                     // Display the cost of the selected card
                     view.CardCost(selectedCard, player);
                 }
@@ -110,7 +111,23 @@ namespace Tragic
 
         public void CombatPhase(Player player1, Player player2, IView view)
         {
-            
+            List<ICard> player1Cards = player1.SelectedCards.GetCards();
+            List<ICard> player2Cards = player2.SelectedCards.GetCards();
+
+            while (player1Cards.Count > 0 && player2Cards.Count > 0)
+            {
+                int modifiedDP = player2Cards[0].DP - player1Cards[0].AP;
+        
+                // Create a new card of the same type with the modified DP value
+                ICard modifiedCard = (ICard)Activator.CreateInstance(player2Cards[0].GetType());
+                modifiedCard.DP = modifiedDP;
+
+                Console.WriteLine($"Player 1 played {player1Cards[0].Name} with {player1Cards[0].AP} AP");
+                Console.WriteLine($"Player 2 modified {modifiedCard.Name} with new DP value: {modifiedCard.DP}");
+                
+                Console.ReadLine();
+                break;
+            }
         }
     }
 }

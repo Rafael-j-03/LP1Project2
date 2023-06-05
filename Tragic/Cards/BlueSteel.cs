@@ -10,7 +10,7 @@ namespace Tragic.Cards
         public string Name => "Blue Steel";
         public int C => 2;
         public int AP => 2;
-        public int DP => 2;
+        public int DP { get; set; } = 2;
         public int Quantity => 2;
 
         // Override ToString() to display the card's Name/C/AP/DP

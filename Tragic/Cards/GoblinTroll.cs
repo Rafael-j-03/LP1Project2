@@ -10,7 +10,7 @@ namespace Tragic
         public string Name => "Goblin Troll";
         public int C => 3;
         public int AP => 3;
-        public int DP => 2;
+        public int DP { get; set; } = 2;
         public int Quantity => 2;
 
         // Override ToString() to display the card's Name/C/AP/DP

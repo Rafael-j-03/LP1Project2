@@ -10,7 +10,7 @@ namespace Tragic
         public string Name => "Mystical Rock Wall";
         public int C => 2;
         public int AP => 0;
-        public int DP => 5;
+        public int DP { get; set; } = 5;
         public int Quantity => 2;
 
         // Override ToString() to display the card's Name/C/AP/DP
