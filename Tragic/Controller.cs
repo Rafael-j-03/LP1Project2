@@ -5,18 +5,30 @@ using System.Threading.Tasks;
 
 namespace Tragic
 {
+    /// <summary>
+    /// Controller for the game
+    /// </summary>
     public class Controller
-    {
+    {   
         private Player player1;
         private Player player2;
         private IView view;
 
+        /// <summary>
+        /// Constructor for the controller
+        /// </summary>
+        /// <param name="player1">Player 1</param>
+        /// <param name="player2">Player 2</param>
         public Controller(Player player1, Player player2)
         {
             this.player1 = player1;
             this.player2 = player2;
         }
 
+        /// <summary>
+        /// Run the game
+        /// </summary>
+        /// <param name="view">View from the project</param>
         public void Run(IView view)
         {
             this.view = view;
@@ -50,6 +62,11 @@ namespace Tragic
             }
         }
 
+        /// <summary>
+        /// Spell phase
+        /// </summary>
+        /// <param name="player">Current player playing</param>
+        /// <param name="view">View from the project</param>
         public void SpellPhase(Player player, IView view)
         {
             while (player.MP > 0)
@@ -85,6 +102,12 @@ namespace Tragic
                 view.NoMP(player);
         }
 
+        /// <summary>
+        /// Player chooses a card to play
+        /// </summary>
+        /// <param name="player">Current player playing</param>
+        /// <param name="view">View from the project</param>
+        /// <returns></returns>
         private ICard ChooseCardToPlay(Player player, IView view)
         {
             view.ShowPlayerCards(player);
@@ -107,7 +130,13 @@ namespace Tragic
                 return ChooseCardToPlay(player, view);
             }
         }
-
+        
+        /// <summary>
+        /// Combat phase
+        /// </summary>
+        /// <param name="player1">Player 1</param>
+        /// <param name="player2">Player 2</param>
+        /// <param name="view">View from the project</param>
         public void CombatPhase(Player player1, Player player2, IView view)
         {
             List<ICard> player1Cards = player1.SelectedCards.GetCards();

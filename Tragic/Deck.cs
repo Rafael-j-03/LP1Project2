@@ -4,11 +4,17 @@ using System.Linq;
 using System.Reflection;
 namespace Tragic
 {
+    /// <summary>
+    /// Deck class
+    /// </summary>
     public class Deck
     {
         private List<ICard> cards;
         private const int MaxDeckSize = 20;
 
+        /// <summary>
+        /// Constructor for the deck
+        /// </summary>
         public Deck()
         {
             cards = new List<ICard>();
@@ -24,6 +30,9 @@ namespace Tragic
             }
         }
 
+        /// <summary>
+        /// Add cards from the assembly
+        /// </summary>
         private void AddCardsFromAssembly()
         {
             // Get the current assembly
@@ -41,6 +50,11 @@ namespace Tragic
             }
         }
 
+        /// <summary>
+        /// Add cards to the deck
+        /// </summary>
+        /// <param name="card">Selected card</param>
+        /// <param name="quantity">Quantity from the selected card</param>
         private void AddCards(ICard card, int quantity)
         {
             int remainingSpace = MaxDeckSize - cards.Count;
@@ -52,6 +66,10 @@ namespace Tragic
             }
         }
 
+        /// <summary>
+        /// Shuffle the cards
+        /// </summary>
+        /// <param name="cards">List of cards</param>
         private void Shuffle(List<ICard> cards)
         {
             // Shuffle the cards
@@ -67,13 +85,19 @@ namespace Tragic
             }
         }
 
-        // Remove a card from the deck
+        /// <summary>
+        /// Remove card from the deck
+        /// </summary>
+        /// <param name="card">Selected card</param>
         public void RemoveCard(ICard card)
         {
             cards.Remove(card);
         }
 
-        // Get all current cards in the deck
+        /// <summary>
+        /// Get cards from the deck
+        /// </summary>
+        /// <returns>All the cards from the deck</returns>
         public List<ICard> GetCards()
         {
             return cards;

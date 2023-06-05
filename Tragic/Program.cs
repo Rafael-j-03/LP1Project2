@@ -2,8 +2,14 @@
 
 namespace Tragic
 {
+    /// <summary>
+    /// Main class
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// Main method
+        /// </summary>
         private static void Main()
         {
             // Create two players with decks

@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Tragic.Cards
 {
+    /// <summary>
+    /// Sharply Dressed card
+    /// </summary>
     public class SharplyDressed : ICard
     {
         public string Name => "Sharply Dressed";
@@ -13,7 +16,10 @@ namespace Tragic.Cards
         public int DP { get; set; } = 3;
         public int Quantity => 1;
 
-        // Override ToString() to display the card's Name/C/AP/DP
+        /// <summary>
+        /// Override ToString() to display the card's Name/C/AP/DP
+        /// </summary>
+        /// <returns>The characteristics from the card</returns>
         public override string ToString()
         {
             return $"{Name}/{C}/{AP}/{DP}";
