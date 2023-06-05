@@ -24,8 +24,9 @@ namespace Tragic
             for (int i = 0; i < player.Hand.GetCards().Count; i++)
             {
                 ICard card = player.Hand.GetCards()[i];
-                Console.WriteLine($"{i + 1}. {card.Name} (MP Cost: {card.C})");
+                Console.WriteLine($"{i + 1}. {card}");
             }
+            Console.WriteLine("\nEnter '0' to skip your turn.");
         }
 
         public void InvalidChoice()
@@ -35,14 +36,6 @@ namespace Tragic
             Console.ReadKey();
 
             ClearScreen();
-        }
-
-        public string ContinuePlaying()
-        {
-            string input = Console.ReadLine().Trim().ToUpper();
-            Console.WriteLine("\nDo you want to continue playing? (Y/N)");
-
-            return input;
         }
 
         public void CardCost(ICard selectedCard, Player player)
@@ -57,6 +50,8 @@ namespace Tragic
             // Press any key to continue...
             Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey();
+
+            ClearScreen();
         }
 
         public void NoMPForCard(ICard selectedCard)

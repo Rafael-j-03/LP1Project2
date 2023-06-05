@@ -17,23 +17,12 @@ namespace Tragic
             this.player2 = player2;
         }
 
-        public Player GetPlayer1()
-        {
-            return player1;
-        }
-
-        public Player GetPlayer2()
-        {
-            return player2;
-        }
-
         public void Run(IView view)
         {
             this.view = view;
             int round = 0;
 
             view.ClearScreen();
-            
             while (player1.HP > 0 || player2.HP > 0)
             {
                 round++;
@@ -68,6 +57,10 @@ namespace Tragic
                 // Player chooses a card to play
                 ICard selectedCard = ChooseCardToPlay(player, view, playerNumber);
 
+                // If the player chooses to skip their turn, break out of the loop
+                if (selectedCard == null)
+                    break;
+
                 // Check if the selected card is valid and the player has enough MP to play it
                 if (selectedCard != null && selectedCard.C <= player.MP)
                 {
@@ -76,18 +69,6 @@ namespace Tragic
                     player.Hand.RemoveCard(selectedCard);
                     // Display the cost of the selected card
                     view.CardCost(selectedCard, player);
-
-                    // Continue playing if the player has remaining MP
-                    if (player.MP > 0)
-                    {
-                        // Prompt the player to continue playing
-                        bool continuePlaying = PromptContinuePlaying(player, view);
-
-                        if (continuePlaying)
-                        {
-                            continue;
-                        }
-                    }
                 }
                 else if (selectedCard.C > player.MP)
                 {
@@ -98,47 +79,31 @@ namespace Tragic
                     view.InvalidChoice();
                 }
             }
-            view.NoMP(player);
+
+            if (player.MP == 0)
+                view.NoMP(player);
         }
 
         private ICard ChooseCardToPlay(Player player, IView view, string playerNumber)
         {
             view.ShowPlayerCards(player, playerNumber);
 
-            int cardIndex;
-            while (true)
+            string input = Console.ReadLine();
+
+            if (input == "0")
             {
-                if (int.TryParse(Console.ReadLine(), out cardIndex) && 
-                    cardIndex >= 1 && cardIndex <= player.Hand.GetCards().Count)
-                {
-                    return player.Hand.GetCards()[cardIndex - 1];
-                }
-                else
-                {
-                    view.InvalidChoice();
-                    SpellPhase(player, view, playerNumber);
-                }
+                view.ClearScreen();
+                return null;
             }
-        }
-
-        private bool PromptContinuePlaying(Player player, IView view)
-        {
-            view.ContinuePlaying();
-
-            while (true)
+            else if (int.TryParse(input, out int cardIndex) &&
+                cardIndex >= 1 && cardIndex <= player.Hand.GetCards().Count)
             {
-                if (view.ContinuePlaying() == "Y")
-                {
-                    return true;
-                }
-                else if (view.ContinuePlaying() == "N")
-                {
-                    return false;
-                }
-                else
-                {
-                    view.InvalidChoice();
-                }
+                return player.Hand.GetCards()[cardIndex - 1];
+            }
+            else
+            {
+                view.InvalidChoice();
+                return ChooseCardToPlay(player, view, playerNumber);
             }
         }
 
