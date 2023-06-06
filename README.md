@@ -76,7 +76,7 @@ Implement a game calledd "Tragic: The Reckoning" in the form of application in c
 - Also added a method to skip the turn.
 
 ## UML file
-![UML](./uml.pdf)
+![UML](./uml.png)
 
 ## References
 
