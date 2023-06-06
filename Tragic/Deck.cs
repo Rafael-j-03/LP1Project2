@@ -33,6 +33,8 @@ namespace Tragic
         /// <summary>
         /// Add cards from the assembly
         /// </summary>
+        //(We searched the web for how to use "try" and "catch",
+        // and we clarified it in ChatGPT)
         private void AddCardsFromAssembly()
         {
             // Get the current assembly
