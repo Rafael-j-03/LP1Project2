@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+
 namespace Tragic
 {
     /// <summary>
@@ -33,7 +34,7 @@ namespace Tragic
         /// <summary>
         /// Add cards from the assembly
         /// </summary>
-        //(We searched the web for how to use "try" and "catch",
+        //(We searched the web for how to use Assembly and Activator,
         // and we clarified it in ChatGPT)
         private void AddCardsFromAssembly()
         {
@@ -75,14 +76,14 @@ namespace Tragic
         private void Shuffle(List<ICard> cards)
         {
             // Shuffle the cards
-            Random rng = new Random();
+            Random random = new Random();
             int n = cards.Count;
             while (n > 1)
             {
                 n--;
-                int k = rng.Next(n + 1);
-                ICard card = cards[k];
-                cards[k] = cards[n];
+                int i = random.Next(n + 1);
+                ICard card = cards[i];
+                cards[i] = cards[n];
                 cards[n] = card;
             }
         }

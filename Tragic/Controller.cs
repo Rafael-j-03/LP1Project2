@@ -58,7 +58,7 @@ namespace Tragic
 
                 SpellPhase(player1, view);
                 SpellPhase(player2, view);
-                CombatPhase(player1, player2, view);
+                //CombatPhase(player1, player2, view);
             }
         }
 
