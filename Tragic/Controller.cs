@@ -149,6 +149,8 @@ namespace Tragic
                 // Create a new card of the same type with the modified DP value
                 ICard modifiedCard = (ICard)Activator.CreateInstance(player2Cards[0].GetType());
                 modifiedCard.DP = modifiedDP;
+
+                // TODO: Implement the combat phase and display the results
             }
         }
     }
