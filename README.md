@@ -75,6 +75,9 @@ Implement a game calledd "Tragic: The Reckoning" in the form of application in c
 
 - Also added a method to skip the turn.
 
+## UML file
+![UML](./uml.pdf)
+
 ## References
 
 - We searched on the web for #GetExecutingAssembly" on StackOverflow and we clarified some doubts with code suggested by ChatGPT.
